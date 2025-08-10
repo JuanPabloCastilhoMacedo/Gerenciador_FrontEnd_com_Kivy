@@ -1,0 +1,24 @@
+<RegisterScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+
+        TextInput:
+            id: email
+            hint_text: "Email"
+            multiline: False
+
+        TextInput:
+            id: senha
+            hint_text: "Senha"
+            multiline: False
+            password: True
+
+        Button:
+            text: "Registrar"
+            on_press: root.register()
+
+        Button:
+            text: "Voltar para Login"
+            on_press: app.root.current = "login"
