@@ -1,24 +1,51 @@
 <LoginScreen>:
+    name: 'login'
+
     BoxLayout:
         orientation: 'vertical'
         padding: 40
         spacing: 20
 
-        TextInput:
-            id: email
-            hint_text: "Email"
+        MDLabel:
+            text: 'Login'
+            halign: 'center'
+            theme_text_color: 'Secondary'
+            font_style: 'H5'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDTextField:
+            id: email_field
+            hint_text: 'E-mail'
+            size_hint_y: None
+            height: '40dp'
+            pos_hint: {'center_x': 0.5}
             multiline: False
 
-        TextInput:
-            id: senha
-            hint_text: "Senha"
-            multiline: False
+        MDTextField:
+            id: password_field
+            hint_text: 'Senha'
             password: True
+            size_hint_y: None
+            height: '40dp'
+            pos_hint: {'center_x': 0.5}
+            multiline: False
 
-        Button:
-            text: "Entrar"
-            on_press: root.login()
+        MDRaisedButton:
+            text: 'Entrar'
+            size_hint_y: None
+            height: '48dp'
+            pos_hint: {'center_x': 0.5}
+            on_release: root.login()
 
-        Button:
+        MDTextButton:
             text: "Registrar"
-            on_press: app.root.current = "register"
+            pos_hint: {"center_x": 0.5}
+            on_release:
+                app.root.current = "register"
+
+        MDTextButton:
+            text: "Esqueci minha senha"
+            pos_hint: {"center_x": 0.5}
+            on_release:
+                app.root.current = "forgot_password"
